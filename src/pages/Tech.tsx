@@ -16,7 +16,7 @@ import type { RootState } from "../store/store";
 gsap.registerPlugin(ScrollTrigger);
 
 const Tech = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 const theme = useSelector((state: RootState) => state.theme.theme);
   const techList = [
     { name: "React JS", icon: <FaReact className="text-[70px] text-blue-500" /> },
@@ -39,7 +39,7 @@ useEffect(() => {
 
   const cards = containerRef.current.querySelectorAll(".tech-item");
 
-  cards.forEach(card => {
+  cards.forEach((card: Element) => {
     gsap.fromTo(
       card,
       {

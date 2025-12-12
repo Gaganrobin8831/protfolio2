@@ -3,9 +3,9 @@ import gsap from "gsap"
 import { useRef } from "react"
 
 const AboutMe = () => {
-    const imgRef = useRef()
-    const txtRef = useRef()
-    const headTxtRef = useRef()
+    const imgRef = useRef<HTMLDivElement>(null)
+    const txtRef = useRef<HTMLDivElement>(null)
+    const headTxtRef = useRef<HTMLHeadingElement>(null)
 
     useGSAP(()=>{
         const tl = gsap.timeline()
