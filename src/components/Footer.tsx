@@ -47,33 +47,33 @@ const Footer = () => {
   ];
 
   useGSAP(() => {
-    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footerRef.current,
         start: "top 95%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
+        once: true,
       },
     });
 
     tl.fromTo(
       footerRef.current,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
     );
 
     tl.from(
       ".social-icon",
       {
         opacity: 0,
-        y: 15,
-        duration: 0.5,
-        stagger: 0.1,
+        y: 10,
+        duration: 0.3,
+        stagger: 0.08,
         ease: "power2.out",
       },
-      "-=0.5"
+      "-=0.3"
     );
-  }, { scope: footerRef });
+  }, {});
 
   return (
     <footer

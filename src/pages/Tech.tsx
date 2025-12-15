@@ -44,18 +44,19 @@ useEffect(() => {
       card,
       {
         opacity: 0,
-        rotationY: 90,
+        rotationY: 60,
         transformOrigin: "left center",
       },
       {
         opacity: 1,
         rotationY: 0,
-        duration: 0.9,
-        ease: "power3.out",
+        duration: 0.5,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
+          once: true,
         },
       }
     );

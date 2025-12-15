@@ -11,25 +11,26 @@ const AboutMe = () => {
         const tl = gsap.timeline()
         tl.fromTo(
             headTxtRef.current,
-            { scale:0.2, opacity: 0 },
-            {scale:1, opacity: 1, duration: 2,delay:2, ease: "power2.out" }
+            {  opacity: 0, scale: 0.8 },
+            { scale: 1, opacity: 1, duration: 0.6, ease: "power2.out" }
         )
         tl.fromTo(
             imgRef.current,
-            { x: -100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 2, ease: "power2.out" }
+            { x: -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+            0.2
         )
         tl.fromTo(  
             txtRef.current,
-            { x: 100, opacity: 0 },
-            { x: 0, opacity: 1, duration: 2, ease: "power2.out" },
-            "-=0.5"
+            { x: 50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+            0.3
         )
     },[])
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center py-20 px-7">
-            <h1 className="px-2 lg:px-5 lg:p-5 text-4xl lg:text-8xl font-serif font font-extrabold my-9 mt-13 w-[80%] border-l-8 " ref={headTxtRef}>About Me</h1>
+            <h1 className="px-2 lg:px-2 lg:p-5 text-4xl lg:text-8xl font-serif font font-extrabold my-9 mt-13 w-[80%] border-l-8 " ref={headTxtRef}>About Me</h1>
             <div className="flex flex-col lg:flex-row items-center justify-center gap-9 w-[80%] ">
                 <div
     ref={imgRef}

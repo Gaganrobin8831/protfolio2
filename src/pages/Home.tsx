@@ -16,29 +16,30 @@ const Home = () => {
 
     tl.from(textRef.current, {
       opacity: 0,
-      y: 40,
-      duration: 1,
+      y: 30,
+      duration: 0.7,
       ease: "power3.out",
     })
       .from(
         imageRef.current,
         {
           opacity: 0,
-          y: 40,
-          duration: 1,
+          y: 30,
+          duration: 0.7,
           ease: "power3.out",
         },
-        "-=0.5"
+        "-=0.4"
       );
 
     gsap.set(imageRef.current, { force3D: true, z: 0.01, willChange: "transform" });
 
+    // Lighter floating animation
     gsap.to(imageRef.current, {
-      y: -10,
-      duration: 3,
+      y: -8,
+      duration: 4,
       repeat: -1,
       yoyo: true,
-      ease: "power1.inOut",
+      ease: "sine.inOut",
       force3D: true,
     });
   }, { scope: containerRef });

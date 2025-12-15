@@ -1,3 +1,6 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   FaReact,
   FaNodeJs,
@@ -13,7 +16,11 @@ import {
   SiJavascript
 } from "react-icons/si";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Services = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const services = [
     {
       title: "Full Stack Web Application",
@@ -59,8 +66,36 @@ const Services = () => {
     },
   ];
 
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const cards = containerRef.current.querySelectorAll(".service-card");
+
+    cards.forEach((card: Element) => {
+      gsap.fromTo(
+        card,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col items-center p-10">
+    <div ref={containerRef} className="min-h-screen flex flex-col items-center p-10">
       <h1 className="text-5xl lg:text-8xl font-extrabold font-serif my-15">
         Services
       </h1>
@@ -69,7 +104,7 @@ const Services = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="shadow-2xl min-h-[300px] w-[500px] p-7 rounded-xl hover:-translate-y-2 transition-transform duration-300 bg-white dark:bg-gray-900"
+            className="service-card shadow-2xl min-h-[300px] w-[500px] p-7 rounded-xl hover:-translate-y-2 transition-transform duration-300 bg-white dark:bg-gray-900 will-change-transform"
           >
             <h2 className="text-2xl text-white! font-bold mb-3">{service.title}</h2>
 
