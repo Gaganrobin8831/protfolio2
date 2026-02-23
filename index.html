@@ -1,13 +1,499 @@
 <!doctype html>
-<html lang="en" class="">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/profile1.png"  style="border-radius: 100%;"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MY PORTFOLIO</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gagandeep Singh — Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    /* Floating and typing from hero */
+    .float {
+      animation: float 4s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-8px);
+      }
+    }
+
+    .typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid rgba(255, 255, 255, 0.9);
+  box-sizing: content-box;
+  font-weight: 800;
+  line-height: 1.2;
+
+  /* Responsive font */
+  font-size: clamp(1.8rem, 6vw, 3.75rem);
+
+  /* Animation */
+  animation: typing 2.4s steps(16, end) infinite alternate,
+             blink 700ms step-end infinite;
+
+  max-width: 100%;
+}
+
+    @keyframes typing {
+      from {
+        width: 0ch;
+      }
+
+      to {
+        width: 16ch;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    /* Reveal on scroll (simple, small JS adds .in-view) */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 600ms cubic-bezier(.2, .8, .2, 1);
+    }
+
+    [data-reveal].in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .img-accel {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+
+  <!-- NAV -->
+  <nav class="fixed inset-x-0 top-4 z-50">
+    <div
+      class="w-[90%] lg:w-[80%] mx-auto bg-gray-800/60 backdrop-blur-md text-white rounded-3xl p-4 flex items-center justify-between shadow-lg">
+      <a href="#home" class="font-bold text-2xl"><img src="/public/images/logo.png" alt="" srcset="" class="h-15 w-20"></a>
+      <ul class="hidden lg:flex gap-8 items-center text-[21px] lg:mx-4">
+        <li><a href="#home" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#services" class="hover:underline">Services</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#hire" class="hover:underline">Why Hire</a></li>
+        <li><a href="#tech" class="hover:underline">Tech</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <div class="lg:hidden">
+        <button id="navToggle" aria-label="Toggle menu" class="p-2">
+          <svg id="navOpenIcon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="navCloseIcon" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu"
+      class="hidden mt-3 w-[90%] lg:hidden mx-auto bg-gray-800/60 backdrop-blur-md rounded-2xl p-4 shadow-lg">
+      <ul class="flex flex-col gap-3 text-center">
+        <li><a href="#home" class="block py-2">Home</a></li>
+        <li><a href="#about" class="block py-2">About</a></li>
+        <li><a href="#services" class="block py-2">Services</a></li>
+        <li><a href="#projects" class="block py-2">Projects</a></li>
+        <li><a href="#hire" class="block py-2">Why Hire</a></li>
+        <li><a href="#tech" class="block py-2">Tech</a></li>
+        <li><a href="#contact" class="block py-2">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto px-6 py-16 pt-28">
+    <!-- HERO -->
+    <section id="home" class="min-h-screen flex flex-col lg:flex-row items-center justify-evenly pt-12" data-reveal>
+      <div class="lg:w-3/5 ">
+        <h3 class="text-2xl font-bold">Welcome to My Portfolio</h3>
+        <h1 class="mt-5 mb-6 h-[75px]"><span class="typewriter">Gagandeep Singh</span></h1>
+        <p class="mt-4 text-lg text-gray-300">Full Stack Engineer | React Native Developer | Tech Mentor. I build
+          scalable applications, simplify complex logic, and focus on writing clean, efficient, and maintainable code.
+        </p>
+        <a href="https://docs.google.com/document/d/1i0ITNm2uUktgQkpNN4Wx8-HCXeT4i5qV/edit?usp=sharing&ouid=107499930440168605413&rtpof=true&sd=true"
+          target="_blank" rel="noreferrer" class="mt-4 inline-block text-lg text-blue-400 hover:underline">Open My
+          CV</a>
+      </div>
+
+      <div class="mt-10 lg:mt-0">
+        <div
+          class="w-[330px] h-[330px] rounded-full overflow-hidden shadow-2xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300 img-accel float">
+          <img src="/public/images/profile1.png" alt="Profile" class="w-full h-full rounded-full object-cover img-accel"
+            loading="lazy" draggable="false" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="w-full py-16 text-center" data-reveal>
+      <h1 class="text-[48px] font-bold mb-6 underline">About Me</h1>
+      <h3
+        class="text-[20px] text-left lg:mx-36 underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 mb-6">
+        🔮 My Journey in MERN Stack Teaching</h3>
+      <p class="mx-auto max-w-3xl mb-6">I view software development through two lenses: the engineer and the instructor.
+        My foundation is built on 1.5 years of teaching the MERN Stack, where I broke down complex concepts for students
+        daily. This experience didn't just teach me how to code—it taught me how to communicate technical ideas clearly
+        and debug code efficiently.</p>
+
+      <h3
+        class="text-[20px] text-left lg:mx-36 underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 mb-6">
+        🔮 Practical Experience</h3>
+      <p class="mx-auto max-w-3xl">I backed this theoretical mastery with practical application as a Backend Developer
+        at Netweb Technology (Feb 2024 to Dec 2024), working on production-level architectures. Today, I combine these
+        worlds to build robust React Native apps and live MERN projects.</p>
+    </section>
+
+    <!-- ABOUT ME (details) -->
+    <section id="about-me" class="min-h-screen py-16 flex flex-col lg:flex-row items-center justify-center gap-12"
+      data-reveal>
+      <div class="w-[330px] h-[330px] rounded-full overflow-hidden shadow-2xl">
+        <img src="/public/images/profile1.png" alt="Profile" class="w-full h-full object-cover rounded-full"
+          loading="lazy" />
+      </div>
+      <div class="lg:w-1/2">
+        <h2 class="text-4xl lg:text-6xl font-extrabold mb-6 text-center md:text-start" >About Me</h2>
+        <p class="mb-6">I combine teaching experience with backend development to build robust apps and communicate
+          complex ideas simply. I worked as a Backend Developer at Netweb Technology and continue to create
+          maintainable, production-ready systems.</p>
+
+        <div class="flex flex-wrap gap-6">
+          <div class="w-[150px]"><strong>BIRTH PLACE</strong>
+            <div>Amritsar</div>
+          </div>
+          <div class="w-[150px]"><strong>RESIDENCE</strong>
+            <div>Kot Mit Singh</div>
+          </div>
+          <div class="w-[150px]"><strong>HOBBIES</strong>
+            <div>Coding</div>
+          </div>
+          <div class="w-[150px]"><strong>BORN</strong>
+            <div>03/03/2000</div>
+          </div>
+          <div class="w-[150px]"><strong>EDUCATION</strong>
+            <div>BSC(IT)</div>
+          </div>
+          <div class="w-[150px]"><strong>Email</strong>
+            <div><a href="mailto:gagandeep.netweb@gmail.com" class="text-blue-400">gagandeep.netweb@gmail.com</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 text-center" data-reveal>
+      <h1 class="text-5xl lg:text-6xl font-extrabold mb-12">Services</h1>
+      <div class="w-full max-w-5xl mx-auto flex flex-wrap gap-8 justify-center">
+        <div class="p-6 bg-white/6 rounded-2xl shadow-lg w-[320px]">
+          <h3 class="text-2xl font-bold mb-3">Full Stack Web Application</h3>
+          <p class="text-gray-300">I build complete full-stack applications using React, Node.js, Express, and
+            MongoDB—scalable, fast, and secure.</p>
+        </div>
+
+        <div class="p-6 bg-white/6 rounded-2xl shadow-lg w-[320px]">
+          <h3 class="text-2xl font-bold mb-3">React Native Mobile App</h3>
+          <p class="text-gray-300">Cross-platform Android and iOS mobile apps using React Native. Smooth UI and
+            optimized performance.</p>
+        </div>
+
+        <div class="p-6 bg-white/6 rounded-2xl shadow-lg w-[320px]">
+          <h3 class="text-2xl font-bold mb-3">Static Webpage Development</h3>
+          <p class="text-gray-300">Responsive static websites built with HTML, Tailwind, and JavaScript—perfect for
+            portfolios and landing pages.</p>
+        </div>
+
+        <div class="p-6 bg-white/6 rounded-2xl shadow-lg w-[320px]">
+          <h3 class="text-2xl font-bold mb-3">Modern Webpage (React + Animations)</h3>
+          <p class="text-gray-300">Interactive web pages with polished animations and fast development using modern
+            tools.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-16 text-center" data-reveal>
+      <h1 class="text-5xl font-bold mb-8 underline">Project Page</h1>
+      <p class="text-lg mb-8">This is the Project page where I showcase my projects.</p>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-semibold my-6">College Webpage</h2>
+        <div class="flex flex-col lg:flex-row items-center gap-6 mb-12">
+          <img src="/public/live/sh.png" alt="College Project" class="lg:w-1/2 rounded-lg shadow" />
+          <p class="lg:w-1/2"> This live project showcases a production-ready frontend built with React, featuring a
+          modular architecture, custom hooks, and reusable components. I implemented dynamic
+          routing, API integrations, and optimized rendering for improved performance. The
+          interface includes smooth animations, responsive layouts, and an intuitive user
+          experience—demonstrating my ability to build clean, scalable, and maintainable UI
+          systems for real-world applications.<a href="https://www.shahzadanandcollege.in/" target="_blank"
+              class="text-blue-400">Click and see page</a></p>
+        </div>
+
+        <h2 class="text-3xl font-semibold my-6">Image Gallery App</h2>
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-6">
+          <img src="/public/live/app.png" alt="Image Gallery App" class="lg:w-1/2 rounded-lg shadow" />
+          <p class="lg:w-1/2"> I developed a React Native image gallery application that automatically organizes photos
+          into category-specific tabs such as All, WhatsApp, Business, and Text Images. One of the
+          standout features is the Text Detection Tab, which intelligently filters and displays only
+          those images containing readable text. By integrating efficient file-system scanning and
+          text extraction logic, the app delivers a smooth, fast, and user-friendly experience.
+          <br /><a
+              href="https://drive.google.com/file/d/1oaHTN8HgIyuvDhsB6ir7UmSoG2l1vFTz/view?usp=sharing" target="_blank"
+              class="text-blue-400">Download apk</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY HIRE ME -->
+    <section id="hire" class="py-16" data-reveal>
+      <h1 class="text-[48px] font-bold underline mb-6 text-center md:text-start">Why Hire Me</h1>
+      <div class="max-w-4xl text-left">
+        <p class="text-lg mb-4">Why the "Teacher-Developer" mix matters: because I spent 1.5 years explaining code, I
+          don't just copy-paste solutions. I understand the 'why' behind every function. This results in:</p>
+        <ul class="list-disc ml-6 space-y-2">
+          <li>Cleaner Code: self-documenting and maintainable.</li>
+          <li>Better Communication: bridging technical hurdles and business goals.</li>
+          <li>Faster Debugging: trained to spot and fix errors quickly.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section id="tech" class="py-16 text-center" data-reveal>
+      <h1 class="text-4xl lg:text-6xl font-extrabold mb-10">Technologies</h1>
+
+      <div class="flex flex-wrap items-center justify-center gap-8">
+
+        <!-- React JS -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-reactjs-line text-5xl text-cyan-400"></i>
+          <div class="text-xl font-semibold">React JS</div>
+        </div>
+
+        <!-- React Native -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-reactjs-fill text-5xl text-blue-400"></i>
+          <div class="text-xl font-semibold">React Native</div>
+        </div>
+
+        <!-- Node.js -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-nodejs-line text-5xl text-green-500"></i>
+          <div class="text-xl font-semibold">Node.js</div>
+        </div>
+
+        <!-- Express -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-server-line text-5xl text-gray-300"></i>
+          <div class="text-xl font-semibold">Express</div>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-database-2-line text-5xl text-green-400"></i>
+          <div class="text-xl font-semibold">MongoDB</div>
+        </div>
+
+        <!-- Tailwind -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+                flex flex-col items-center justify-center gap-4 
+                hover:scale-105 transition duration-300">
+          <i class="ri-windy-line text-5xl text-sky-400"></i>
+          <div class="text-xl font-semibold">Tailwind CSS</div>
+        </div>
+        <!-- HTML -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+            flex flex-col items-center justify-center gap-4 
+            hover:scale-105 transition duration-300">
+          <i class="ri-html5-fill text-5xl text-orange-500"></i>
+          <div class="text-xl font-semibold">HTML</div>
+        </div>
+
+        <!-- CSS -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+            flex flex-col items-center justify-center gap-4 
+            hover:scale-105 transition duration-300">
+          <i class="ri-css3-fill text-5xl text-blue-500"></i>
+          <div class="text-xl font-semibold">CSS</div>
+        </div>
+
+        <!-- C -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+            flex flex-col items-center justify-center gap-4 
+            hover:scale-105 transition duration-300">
+          <i class="ri-code-s-slash-line text-5xl text-gray-400"></i>
+          <div class="text-xl font-semibold">C</div>
+        </div>
+
+        <!-- C++ -->
+        <div class="tech-item w-[220px] h-[200px] bg-white/6 rounded-2xl 
+            flex flex-col items-center justify-center gap-4 
+            hover:scale-105 transition duration-300">
+          <i class="ri-code-box-line text-5xl text-indigo-400"></i>
+          <div class="text-xl font-semibold">C++</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 text-center" data-reveal>
+      <h1 class="text-5xl font-extrabold mb-4">Contact Me</h1>
+      <p class="text-2xl text-gray-400 mb-8">Get in Touch</p>
+
+      <div class="flex flex-wrap justify-center items-center gap-6">
+
+        <a href="https://github.com/Gaganrobin8831" target="_blank"
+          class="p-5 bg-white/6 rounded shadow-lg text-center w-40 hover:scale-105 transition">
+          <i class="ri-github-fill text-3xl mb-2"></i>
+          <div class="text-xl mt-2">GitHub</div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/gagandeep-singh8831" target="_blank"
+          class="p-5 bg-white/6 rounded shadow-lg text-center w-40 hover:scale-105 transition">
+          <i class="ri-linkedin-fill text-3xl mb-2 text-blue-500"></i>
+          <div class="text-xl mt-2">LinkedIn</div>
+        </a>
+
+        <a href="https://www.instagram.com/singh_gagan9322" target="_blank"
+          class="p-5 bg-white/6 rounded shadow-lg text-center w-40 hover:scale-105 transition">
+          <i class="ri-instagram-fill text-3xl mb-2 text-pink-500"></i>
+          <div class="text-xl mt-2">Instagram</div>
+        </a>
+
+        <a href="https://wa.me/+916280738831" target="_blank"
+          class="p-5 bg-white/6 rounded shadow-lg text-center w-40 hover:scale-105 transition">
+          <i class="ri-whatsapp-fill text-3xl mb-2 text-green-500"></i>
+          <div class="text-xl mt-2">WhatsApp</div>
+        </a>
+
+        <a href="mailto:gagandeep.netweb@gmail.com"
+          class="p-5 bg-white/6 rounded shadow-lg text-center w-40 hover:scale-105 transition">
+          <i class="ri-mail-fill text-3xl mb-2 text-red-500"></i>
+          <div class="text-xl mt-2">Email</div>
+        </a>
+
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Simple intersection observer to add .in-view for elements with data-reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in-view');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const openIcon = document.getElementById('navOpenIcon');
+    const closeIcon = document.getElementById('navCloseIcon');
+
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('hidden');
+        // toggle icons (openIcon visible when menu hidden)
+        openIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      openIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }));
+
+    // Insert current year into any element with data-year
+    document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+
+  <!-- FOOTER -->
+  <footer class="w-full py-10 mt-20 text-center text-gray-300 border-t border-white/10">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-2xl font-bold mb-2">Gagandeep Singh</h2>
+    <p class="mb-6 text-gray-400">
+      Building digital experiences with code and creativity. Feel free to connect!
+    </p>
+
+    <!-- Social Icons -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-6 text-2xl">
+
+      <a href="https://github.com/Gaganrobin8831" target="_blank"
+         class="hover:text-white hover:scale-110 transition duration-300">
+        <i class="ri-github-fill"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/gagandeep-singh8831" target="_blank"
+         class="hover:text-blue-500 hover:scale-110 transition duration-300">
+        <i class="ri-linkedin-fill"></i>
+      </a>
+
+      <a href="https://www.instagram.com/singh_gagan9322" target="_blank"
+         class="hover:text-pink-500 hover:scale-110 transition duration-300">
+        <i class="ri-instagram-fill"></i>
+      </a>
+
+      <a href="https://wa.me/+916280738831" target="_blank"
+         class="hover:text-green-500 hover:scale-110 transition duration-300">
+        <i class="ri-whatsapp-fill"></i>
+      </a>
+
+      <a href="mailto:gagandeep.netweb@gmail.com"
+         class="hover:text-red-500 hover:scale-110 transition duration-300">
+        <i class="ri-mail-fill"></i>
+      </a>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-sm text-gray-500">
+      © <span data-year></span> Gagandeep Singh. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+</body>
+<script>
+  document.querySelector("[data-year]").textContent = new Date().getFullYear();
+</script>
+
 </html>
